@@ -1,0 +1,259 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* Первая Шапка */
+
+header {
+    position: relative;
+}
+
+/* по факту на странице этот тег один, поэтому стили можем применять прямо к нему */
+nav {   
+    /* шапка меню с высотой 53px */
+    height: 53px;
+    background-color: #212121;
+}
+
+
+/* в данном случае можно было бы и прописать header nav разницы никакой */
+.menu {             
+    display: flex;
+    justify-content: space-between;
+     /* Здесь мы четко подобрали 14px чтоб общая высота header совпала с высотой ul.menu т.е. 53px. Так же данный вопрос решаеться при помощи line-heigh. Top/botton был выбран исходя из разделителя меджу названиями, left/right был выбран от названия (Главная - Оставить заявку)  */
+    padding: 14px 40px 15px 71px;     
+    /* Так как  bootstrap подтягивает margin и мы его обнулили */
+    margin: 0;  
+    list-style: none;   
+}
+
+.menu .menu_link {
+    font-weight: 300;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+/* Разделители меджу словами */
+.menu .menu_item {
+    border-right: 2px dashed black;
+    padding-right: 28px;
+}
+
+/* У шестого li убрал лишнюю границу */
+.menu_item:nth-child(6) {
+    border: none;
+}
+
+
+/* Вторая Шапка */
+
+
+.subheader {
+    /* Первый способ подвинуть background секции promo вверх. Второй способ прямо в секции promo. Но лучший способ это первый*/
+
+    /* Почему мы задали position: absolute; второй шапки? Для того, чтоб background секции promo поднялся повыше. Раз мы задали position: absolute, значит нашим родителем будет header, которому мы прописали relative  */
+    position: absolute;
+    /* После того, как мы придали даной шапке  position: absolute; то у нас вся шапка сплющилась. Чтоб это исправить мы придали ширину шапки 100%, что значить 100% от родителя, а т.е. от header */
+    width: 100%;
+    height: 84px;
+    background: rgba(0,0,0, .6);
+
+    /* position: relative; */
+    /* z-index: 2; */
+}
+
+.subheader .subheader_logo {
+    /* Почему именно  max-width: 100%; Так как может в будущем поменяться название логотипа и чтоб он был подстроен под наши размеры мы придали 100% от нашей колонки. */
+    max-width: 100%;
+    /* Так как ссылка это строчный элемент, а для строчных элементов margin не работает, поэтому придали block */
+    display: block;
+    margin-top: 16px;
+}
+
+.subheader .subheader_logo_text {
+    font-weight: 100;
+    font-size: 13px;
+    color: #FFFFFF;
+    opacity: 0.5;
+    margin-top: 6px;
+}
+
+.subheader .subheader_call {
+    margin-top: 19px;
+    font-weight: 300;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.subheader .subheader_phone {
+    display: block;
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-align: right;  
+    /* Здесь нам было необходимо чтоб отступить немного от низу */
+   line-height: 12px;
+}
+
+.subheader .subheader_btn {
+    margin: 19px 0;
+    width: 172px;
+    height: 46px;
+    background: linear-gradient(0deg, #1EACC7 0%, #4CE2FF 100%);
+    box-shadow: inset 0px 0px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.21);
+    border: none;
+
+}
+
+
+/* Секция Promo */
+
+.promo {
+    min-height: 800px;
+    background: url('../img/uber_bg.png') center center/cover no-repeat;
+    padding: 152px 0 186px 0;
+
+    /* Второй способ поднять наш background выше при помощи transform. Но таким образом у нас background полностью перекроет вторую шапку. Для этого мы применим для promo минимальный z-index, а для второй шапки максимальный, чтоб она появилась z-index: 2, а так же необходимо для шапки прописать position: relative. */
+
+    /* transform: translateY(-84px);
+    z-index: 1; */
+}
+
+.promo .promo_header {
+    font-weight: 700;
+    font-size: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.promo .promo_subheader {
+    margin-top: 22px;
+    font-weight: 700;
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.promo .promo_descr {
+    margin-top: 23px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.promo .promo_btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 115px;
+    width: 259px;
+    height: 63px;
+    background: linear-gradient(0deg, #1EACC7 0%, #4CE2FF 100%);
+    box-shadow: inset 0px 0 0px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    border: none;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.21);
+}
+
+
+/* Секция Причины */
+
+.reason_to_start {
+    min-height: 767px;
+    padding: 18px 0 64px 0;
+    background: #FFFFFF;
+}
+
+.reason_to_start .label {
+    margin: 0 auto;
+    padding: 6.5px 0 6.5px 0;
+    width: 115px;
+    height: 27px;
+    background: #000000;
+    font-weight: 400;
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.reason_to_start .titles {
+    margin-top: 32px;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 48px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #222222;
+}
+
+.reason_to_start .reason_wrapper {
+    /* margin-top: 16px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+.reason_to_start .reason_wrapper .reason_curcle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 116px;
+    height:116px;
+    background: #1EACC7;
+    border-radius:100%;
+    margin-right: 25px;
+}
+
+.reason_to_start .reason_wrapper .reason_descr {
+    /* Применил, чтоб задать всем одну ширину */
+    width: 372px;
+}
+
+.reason_to_start .reason_wrapper .reason_descr .title {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 21px;
+    color: #1EACC7;
+
+}
+
+.reason_to_start .reason_wrapper .reason_descr .sub_title {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: #202020;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
