@@ -14,7 +14,7 @@ hamburger.addEventListener("click", () => {
    if(container.offsetWidth <= 540) {
       main.style.marginLeft = "0px";
    }else {
-      main.style.marginLeft = "160px";
+      main.style.marginLeft = "300px";
    }
    overlay.style.cssText = `
                background: rgba(0,0,0,0.4);
